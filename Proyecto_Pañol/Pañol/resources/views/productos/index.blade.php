@@ -39,7 +39,7 @@
                     {!! Form::close() !!}
 
                     {{-- para estudiantes o profesores --}}
-                     <a href="{{ URL::to('pedidos/create') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
+                     <a href="{{ URL::to('pedidos/'.$producto.'/create') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
 
 
 

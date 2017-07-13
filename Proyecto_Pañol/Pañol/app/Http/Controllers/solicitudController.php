@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Prestamos;
 use Auth;
 use Session;
+use App\Prestamos;
+use App\Producto;
 
 class solicitudController extends Controller
 {
@@ -34,8 +36,21 @@ class solicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Producto $producto)
     {
+         $prestamo = new Prestamos();
+         $prestamo->nombre_producto=$producto->nombre_producto;
+         $prestamo->cantidad='1';
+         $prestamo->nombre_solicitante='prueba';      //Auth::user()->name;
+         $prestamo->nombre_pañolero="";
+         $prestamo->estado="en espera";
+         $prestamo->fecha_pedido=hoy;
+         $prestamo->save();
+         return redirect()->route('productos.index')
+            ->with('flash_message',
+                'pedido realizado satisfactoriamente');
+
+
         
     }
 
