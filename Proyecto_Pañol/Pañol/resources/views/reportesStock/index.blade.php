@@ -15,9 +15,12 @@
 
             <thead>
                 <tr>
-                    <th>id producto</th>
-                    <th>cantidad</th>
-                    <th>fecha actualizacion</th>
+                    <th>nombre</th>
+                    <th>Marca</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Fecha de creacion</th>
+                    <th>Ultima actualizacion</th>
                 </tr>
             </thead>
 
@@ -25,8 +28,11 @@
                 @foreach ($stock as $aux)
                 <tr>
 
-                    <td>{{ $aux->producto_id }}</td>
+                    <td>{{ $aux->nombre }}</td>
+                    <td>{{ $aux->marca }}</td>
                     <td>{{ $aux->cantidad }}</td>
+                    <td>{{ $aux->estado }}</td>
+                    <td>{{ $aux->fecha }}</td>
                     <td>{{ $aux->updated_at }}</td>
                    {{--  @if(Auth::user()->hasPermissionTo('Actualizar atención'))                    
                     <td>
