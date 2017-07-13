@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Prestamos extends Model
 {
    protected $fillable = [
+       
+       'nombre_producto',
        'cantidad',
-       'id_solicitante',
-       'id_panolero',
+       'nombre_solicitante',
+       'nombre_panolero',
+       'estado',
        'fecha_entrega',
        'fecha_pedido',
 
