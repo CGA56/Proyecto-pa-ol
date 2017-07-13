@@ -64,6 +64,7 @@
                             <li><a href="{{ route('categorias.index') }}">Administrar Categorias</a></li>
                             <li><a href="{{ route('productos.index') }}">Administrar Productos</a></li>
                             {{-- cristopher --}}
+                            <li><a href=#>toootem</a></li>
 
                             <li><a href="{{route('reportesPrestamos.index')}}">Ver reporte prestamos</a></li>
                             <li><a href="{{route('reportesStock.index')}}">Ver reporte Stock</a></li>
