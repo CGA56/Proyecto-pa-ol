@@ -38,6 +38,11 @@
                     {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
 
+                    {{-- para estudiantes o profesores --}}
+                     <a href="{{ URL::to('pedidos/create') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
+
+
+
                    </td>
                     
 
