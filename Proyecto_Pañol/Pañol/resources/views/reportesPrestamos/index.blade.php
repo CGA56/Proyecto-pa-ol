@@ -15,12 +15,13 @@
 
             <thead>
                 <tr>
-                    <th>id producto</th>
+                    <th>nombre producto</th>
                     <th>cantidad</th>
-                    <th>id solicitante</th>
-                    <th>id pañolero</th>
+                    <th>nombre solicitante</th>
+                    <th>nombre pañolero</th>
                     <th>fecha pedido</th>
                     <th>fecha entrega</th>
+                    <th>estado</th>
                 </tr>
             </thead>
 
@@ -28,23 +29,22 @@
                 @foreach ($solicitudes as $solicitud)
                 <tr>
 
-                    <td>{{ $solicitud->id_producto }}</td>
+                    <td>{{ $solicitud->nombre_producto }}</td>
                     <td>{{ $solicitud->cantidad }}</td>
-                    <td>{{ $solicitud->id_solicitante }}</td>
-                    <td>{{ $solicitud->id_panolero }}</td>
+                    <td>{{ $solicitud->nombre_solicitante }}</td>
+                    <td>{{ $solicitud->nombre_panolero }}</td>
                     <td>{{ $solicitud->fecha_pedido }}</td>
                     <td>{{ $solicitud->fecha_entrega }}</td>
+                 
+                    <td id="estado" name="estado"> {{Form::select('estado',['en espera'=>'en espera','aceptada'=>'aceptada','debuelta'=>'debuelta',''=>''],$solicitud->estado)}}</td>
 
-                   {{--  @if(Auth::user()->hasPermissionTo('Actualizar atención'))                    
+                                    
                     <td>
-                    <a href="{{ route('atenciones.edit', $atencion->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Actualizar</a>
-                    @endif --}}
+              
 
-                    {{-- @if(Auth::user()->hasPermissionTo('Eliminar atención')) --}}
-                    {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['atenciones.destroy', $atencion->id] ]) !!}
-                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!} --}}
-                    {{-- @endif --}}
+                   <a href="/pedidos/modi" class="btn btn-success">Ingresar atención</a>
+
+                  
                     </td>
                 </tr>
                 @endforeach

@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
                     $stock->fecha='2017-05-05';
                     $stock->nombre='Papelucho';
                     $stock->marca='Marcela Paz';
-                    $stock->estado='nuevo';
+                    $stock->estado='disponible';
                     $stock->cantidad='0';
                     $stock->save();
                 }
@@ -176,7 +176,7 @@ class DatabaseSeeder extends Seeder
                     $stock->fecha='2017-05-05';
                     $stock->nombre='muy interesante';
                     $stock->marca='magacine';
-                    $stock->estado='nuevo';
+                    $stock->estado='disponible';
                     $stock->cantidad='0';
                     $stock->save();
                 }
@@ -196,7 +196,7 @@ class DatabaseSeeder extends Seeder
                     $stock->nombre='titanic';
                     $stock->marca='disney';
                     $stock->cantidad='0';
-                    $stock->estado='nuevo';
+                    $stock->estado='disponible';
                     $stock->save();
                 }
 

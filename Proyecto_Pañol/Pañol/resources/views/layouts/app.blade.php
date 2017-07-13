@@ -59,43 +59,28 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/inicio') }}">Inicio</a></li>
                         {{-- @if (!Auth::guest()) --}}
-                            {{-- @role('AdmPanol') --}}
-                            <li><a href="{{ route('usuarios.index') }}">Administrar  Usuarios</a></li>
+                            @role('SuperAdmin')
                             <li><a href="{{ route('categorias.index') }}">Administrar Categorias</a></li>
+                             @endrole
+                             @role('AdmPanol')
+                            <li><a href="{{ route('usuarios.index') }}">Administrar  Usuarios</a></li>
+                            
                             <li><a href="{{ route('productos.index') }}">Administrar Productos</a></li>
+                            @endrole
                             {{-- cristopher --}}
-                            <li><a href=#>toootem</a></li>
-
+                             @role('Profesor')
+                            <li><a href="{{ route('productos.index') }}">totem</a></li>
+                            @endrole
+                            {{--  @role('Usuario') --}}
+                            <li><a href="{{ route('productos.index') }}">totem</a></li>
+                        {{--     @endrole --}}
+                            {{-- @role('Director') --}}
                             <li><a href="{{route('reportesPrestamos.index')}}">Ver reporte prestamos</a></li>
                             <li><a href="{{route('reportesStock.index')}}">Ver reporte Stock</a></li>
-                            {{-- <li><a href="/estadisticas">Estadisticas</a></li>
-                            @endrole
-                            @role('Administrador')
-                            <li><a href="/usuarios">Usuarios</a></li>
-                            <li><a href="/medicos">Médicos</a></li>
-                            <li><a href="/pacientes">Pacientes</a></li>
-                            @endrole
-                             @role('Secretaria')
-                            <li><a href="/pacientes">Pacientes</a></li>
-                            <li><a href="/medicos">Medicos</a></li>
-                            <li><a href="/atenciones">Atenciones</a></li>
-                            @endrole
-                            @role('Paciente')
-                            <li><a href="/atenciones">Atenciones</a></li>
-                            @endrole --}}
+                            {{-- @endrole --}}
+                            
 
-                            @role('Usuario')
-                            <li><a >solo para usuarios</a></li>
-
-                            @endrole
-                            @role('Director')
-                            <li><a >solo para director</a></li>
-
-                            @endrole
-                             @role('SuperAdmin')
-                            <li><a >solo para superadmin</a></li>
-
-                            @endrole
+                            
                         
                     </ul>
 
@@ -104,7 +89,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
-                            <li><a href="{{ route('register') }}">Registro</a></li>
+                            {{-- <li><a href="{{ route('register') }}">Registro</a></li> --}}
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -63,6 +63,7 @@ Route::get('/inicio', 'HomeController@index');
 //     return view('categorias\create');
 // });
 
+Route::POST('/actualizar', 'solicitudController@actualizar');
 
 Route::resource('usuarios', 'usuarioController');
 Route::resource('categorias', 'categoriaController');
@@ -71,6 +72,10 @@ Route::resource('productos', 'productosController');
 Route::resource('reportesPrestamos', 'solicitudController');
 Route::resource('reportesStock', 'stockController');
 Route::resource('pedidos', 'solicitudController');
+
+
+
+
 
 
 

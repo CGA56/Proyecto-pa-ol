@@ -24,36 +24,30 @@
                 </tr>
             </thead>
 
-            <tbody>
+          
                 @foreach ($stock as $aux)
+              {{Form::open(['url'=>'/actualizar','method'=>'POST'])}}
                 <tr>
-
-                    <td>{{ $aux->nombre }}</td>
-                    <td>{{ $aux->marca }}</td>
-                    <td>{{ $aux->cantidad }}</td>
-                    <td>{{ $aux->estado }}</td>
-                    <td>{{ $aux->fecha }}</td>
-                    <td>{{ $aux->updated_at }}</td>
-                   {{--  @if(Auth::user()->hasPermissionTo('Actualizar atención'))                    
+                <td >{{Form::text('nombre',$aux->nombre, ['disabled' => 'disabled'])}}</td>
+                <td >{{Form::text('marca',$aux->marca, ['disabled' => 'disabled'])}}</td>
+                <td >{{Form::text('cantidad',$aux->cantidad, ['disabled' => 'disabled'])}}</td>
+             
+                <td>{{Form::select('estado',['disponible'=>'disponible','prestamo'=>'prestamo','dado de baja'=>'dado de baja',''=>''],$aux->estado)}}</td>
+                <td >{{Form::text('fecha',$aux->fecha, ['disabled' => 'disabled'])}}</td>
+                <td >{{Form::text('updated_at',$aux->updated_at, ['disabled' => 'disabled'])}}</td>
+                                     
                     <td>
-                    <a href="{{ route('atenciones.edit', $atencion->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Actualizar</a>
-                    @endif --}}
-
-                    {{-- @if(Auth::user()->hasPermissionTo('Eliminar atención'))
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['atenciones.destroy', $atencion->id] ]) !!}
-                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                    @endif
-                    </td> --}}
+                   
+                    
+                    </td> 
                 </tr>
+                {{Form::close()}}
                 @endforeach
-            </tbody>
+           
 
         </table>
     </div>
-   {{--  @if (Auth::user()->hasPermissionTo('Ingresar atención'))
-    <a href="/atenciones/ingresar-atencion" class="btn btn-success">Ingresar atención</a>
-    @endif --}}
+   
 </div>
  
 @endsection

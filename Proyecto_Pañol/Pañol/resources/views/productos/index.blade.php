@@ -15,6 +15,7 @@
                     <th>Marca o proveedor</th>
                     <th>Cantidad</th>
                     <th>observacion</th>
+
                     <th>Accion </th>
               
                 </tr>
@@ -32,14 +33,15 @@
                     <td>
                  
 
-
+                     @role('AdmPanol')       
                     <a href="{{ URL::to('productos/'.$producto->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['productos.destroy', $producto] ]) !!}
                     {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
+                    @endrole
                     
                     {{ Form::model($producto, array('route' => array('pedidos.update', $producto->id), 'method' => 'PUT')) }}
-                      {{ Form::submit('agregar', array('class' => 'btn btn-primary')) }}
+                      {{ Form::submit('Crear Pedido', array('class' => 'btn btn-primary')) }}
 
                       {{ Form::close() }}   
                     
@@ -61,7 +63,9 @@
              
 
         </table>
+        @role('AdmPanol') 
         <a href="{{ URL::to('productos/create') }}" class="btn btn-success">Añadir Producto</a>
+        @endrole
     </div>
 
 
