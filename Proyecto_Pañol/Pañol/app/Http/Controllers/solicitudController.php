@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Prestamos;
 use Auth;
 use Session;
-use App\Prestamos;
 use App\Producto;
 
 class solicitudController extends Controller
@@ -38,17 +37,8 @@ class solicitudController extends Controller
      */
     public function create(Producto $producto)
     {
-         $prestamo = new Prestamos();
-         $prestamo->nombre_producto=$producto->nombre_producto;
-         $prestamo->cantidad='1';
-         $prestamo->nombre_solicitante='prueba';      //Auth::user()->name;
-         $prestamo->nombre_pañolero="";
-         $prestamo->estado="en espera";
-         $prestamo->fecha_pedido=hoy;
-         $prestamo->save();
-         return redirect()->route('productos.index')
-            ->with('flash_message',
-                'pedido realizado satisfactoriamente');
+
+        
 
 
         
@@ -62,7 +52,7 @@ class solicitudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -96,9 +86,22 @@ class solicitudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $id)
     {
-        //
+        
+           $producto=Producto::findOrFail($id);
+
+         $prestamo = new Prestamos();
+         $prestamo->nombre_producto= $producto->nombre_producto;
+         $prestamo->cantidad='1';
+         $prestamo->nombre_solicitante='prueba';      //Auth::user()->name;
+         $prestamo->nombre_panolero="";
+         $prestamo->estado="en espera";
+         // $prestamo->fecha_pedido='2017-05-05';
+         $prestamo->save();
+         return redirect()->route('productos.index')
+            ->with('flash_message',
+                'pedido realizado satisfactoriamente');
     }
 
     /**

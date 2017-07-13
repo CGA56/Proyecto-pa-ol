@@ -24,7 +24,7 @@
                @foreach ($productos as $producto)
                 <tr>
 
-                    <td> {{$producto->nombre_producto}}</td>
+                    <td id="nombre"> {{$producto->nombre_producto}}</td>
                     <td> {{$producto->MarcaProveedor}}</td>
                     <td> {{$producto->cantidad_disponible}}</td>
                     <td> {{$producto->observacion}}</td>
@@ -37,9 +37,16 @@
                     {!! Form::open(['method' => 'DELETE', 'route' => ['productos.destroy', $producto] ]) !!}
                     {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
+                    
+                    {{ Form::model($producto, array('route' => array('pedidos.update', $producto->id), 'method' => 'PUT')) }}
+                      {{ Form::submit('agregar', array('class' => 'btn btn-primary')) }}
+
+                      {{ Form::close() }}   
+                    
+              
 
                     {{-- para estudiantes o profesores --}}
-                     <a href="{{ URL::to('pedidos/'.$producto.'/create') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
+                
 
 
 

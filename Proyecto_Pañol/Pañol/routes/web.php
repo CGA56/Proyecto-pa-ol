@@ -70,7 +70,7 @@ Route::resource('productos', 'productosController');
 
 Route::resource('reportesPrestamos', 'solicitudController');
 Route::resource('reportesStock', 'stockController');
-Route::resource('pedidos', 'soliditudController');
+Route::resource('pedidos', 'solicitudController');
 
 
 

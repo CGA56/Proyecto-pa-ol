@@ -41,9 +41,9 @@
                     @endif --}}
 
                     {{-- @if(Auth::user()->hasPermissionTo('Eliminar atención')) --}}
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['atenciones.destroy', $atencion->id] ]) !!}
+                    {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['atenciones.destroy', $atencion->id] ]) !!}
                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
+                    {!! Form::close() !!} --}}
                     {{-- @endif --}}
                     </td>
                 </tr>
