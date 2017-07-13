@@ -15,10 +15,10 @@ class Prestamos extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_producto');
+            $table->integer('nombre_producto');
             $table->integer('cantidad');
-            $table->integer('id_solicitante');
-            $table->integer('id_panolero');
+            $table->integer('nombre_solicitante');
+            $table->integer('nombre_panolero');
             $table->string('estado');
             $table->date('fecha_entrega');
             $table->date('fecha_pedido');
