@@ -18,9 +18,9 @@ class Prestamos extends Migration
             $table->integer('nombre_producto');
             $table->integer('cantidad');
             $table->integer('nombre_solicitante');
-            $table->integer('nombre_panolero');
+            $table->integer('nombre_panolero')->nullable();;
             $table->string('estado');
-            $table->date('fecha_entrega');
+            $table->date('fecha_entrega')->nullable();;
             $table->date('fecha_pedido');
             $table->timestamps();
         });
